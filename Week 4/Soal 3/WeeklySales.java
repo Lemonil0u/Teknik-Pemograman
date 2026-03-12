@@ -32,12 +32,13 @@ public class WeeklySales
         for (Salesperson s : salesStaff)
             System.out.println (s);*/
 
+        // And this one is with user input
         Scanner scan = new Scanner(System.in);
         int numStaff;
 
         System.out.print("How many salespeople do you want to enter? ");
         numStaff = scan.nextInt();
-        scan.nextLine(); // Membersihkan buffer setelah nextInt()
+        scan.nextLine(); // To clean the buffer after nextInt()
 
         Salesperson[] salesStaff = new Salesperson[numStaff];
 
@@ -53,7 +54,7 @@ public class WeeklySales
             
             System.out.print("Total Sales: ");
             int sales = scan.nextInt();
-            scan.nextLine(); // Membersihkan buffer lagi
+            scan.nextLine(); // To clean the buffer after nextInt()
 
             salesStaff[i] = new Salesperson(first, last, sales);
         }

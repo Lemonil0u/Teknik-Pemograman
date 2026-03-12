@@ -25,7 +25,7 @@ public class Salesperson implements Comparable<Salesperson>
     //-------------------------------------------
     public String toString()
     {
-        return lastName + ", " + firstName + ": \t" + totalSales;
+        return String.format("%-25s: %d", lastName + ", " + firstName, totalSales); // Format the string to align the names and sales nicely
     }
     
     //-------------------------------------------
