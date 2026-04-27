@@ -1,0 +1,44 @@
+2026-04-28 00:58:52 [INFO ] com.p2p.LoanServiceTest - ====== TC-02b: shouldRejectLoanWhenAmountIsNegative ======
+2026-04-28 00:58:52 [DEBUG] com.p2p.LoanServiceTest - [ARRANGE] Borrower valid (verified=true, creditScore=700)
+2026-04-28 00:58:52 [DEBUG] com.p2p.LoanServiceTest - [ARRANGE] Amount: -500 (negatif, tidak valid)
+2026-04-28 00:58:52 [DEBUG] com.p2p.LoanServiceTest - [ACT] Mengajukan loan dengan amount negatif
+2026-04-28 00:58:52 [WARN ] com.p2p.LoanServiceTest - [ASSERT] Exception ditangkap: Jumlah pinjaman harus lebih dari 0
+2026-04-28 00:58:52 [INFO ] com.p2p.LoanServiceTest - [RESULT] TC-02b PASSED - Sistem berhasil menolak loan karena jumlah pinjaman bernilai negatif
+2026-04-28 00:58:52 [INFO ] com.p2p.LoanServiceTest - ====== TC-04: shouldRejectLoanWhenCreditScoreLow ======
+2026-04-28 00:58:52 [DEBUG] com.p2p.LoanServiceTest - [ARRANGE] Borrower verified, credit score rendah: 400
+2026-04-28 00:58:52 [DEBUG] com.p2p.LoanServiceTest - [ARRANGE] Amount pinjaman: 5000
+2026-04-28 00:58:52 [DEBUG] com.p2p.LoanServiceTest - [ACT] Mengajukan loan
+2026-04-28 00:58:52 [DEBUG] com.p2p.LoanServiceTest - [ACT] Loan diproses, status: REJECTED
+2026-04-28 00:58:52 [DEBUG] com.p2p.LoanServiceTest - [ASSERT] Memverifikasi status loan sama dengan REJECTED
+2026-04-28 00:58:52 [INFO ] com.p2p.LoanServiceTest - [RESULT] TC-04 PASSED - Sistem berhasil menolak loan karena credit score 400 berada di bawah threshold
+2026-04-28 00:58:52 [INFO ] com.p2p.LoanServiceTest - ====== TC-02a: shouldRejectLoanWhenAmountIsZero ======
+2026-04-28 00:58:52 [DEBUG] com.p2p.LoanServiceTest - [ARRANGE] Borrower valid (verified=true, creditScore=700)
+2026-04-28 00:58:52 [DEBUG] com.p2p.LoanServiceTest - [ARRANGE] Amount: 0 (tidak valid)
+2026-04-28 00:58:52 [DEBUG] com.p2p.LoanServiceTest - [ACT] Mengajukan loan dengan amount = 0
+2026-04-28 00:58:52 [WARN ] com.p2p.LoanServiceTest - [ASSERT] Exception ditangkap: Jumlah pinjaman harus lebih dari 0
+2026-04-28 00:58:52 [INFO ] com.p2p.LoanServiceTest - [RESULT] TC-02a PASSED - Sistem berhasil menolak loan karena jumlah pinjaman bernilai nol
+2026-04-28 00:58:52 [INFO ] com.p2p.LoanServiceTest - ====== TC-03: shouldApproveLoanWhenCreditScoreHigh ======
+2026-04-28 00:58:52 [DEBUG] com.p2p.LoanServiceTest - [ARRANGE] Borrower valid, credit score: 700
+2026-04-28 00:58:52 [DEBUG] com.p2p.LoanServiceTest - [ARRANGE] Amount pinjaman: 5000
+2026-04-28 00:58:52 [DEBUG] com.p2p.LoanServiceTest - [ACT] Mengajukan loan
+2026-04-28 00:58:52 [DEBUG] com.p2p.LoanServiceTest - [ACT] Loan diproses, status: APPROVED
+2026-04-28 00:58:52 [DEBUG] com.p2p.LoanServiceTest - [ASSERT] Memverifikasi status loan sama dengan APPROVED
+2026-04-28 00:58:52 [INFO ] com.p2p.LoanServiceTest - [RESULT] TC-03 PASSED - Sistem berhasil menyetujui loan dengan credit score 700 yang memenuhi threshold
+2026-04-28 00:58:52 [INFO ] com.p2p.LoanServiceTest - ====== TC-03 Edge Case: credit score tepat di threshold (600) ======
+2026-04-28 00:58:52 [DEBUG] com.p2p.LoanServiceTest - [ARRANGE] Borrower dengan credit score tepat threshold: 600
+2026-04-28 00:58:52 [DEBUG] com.p2p.LoanServiceTest - [ARRANGE] Amount pinjaman: 3000
+2026-04-28 00:58:52 [DEBUG] com.p2p.LoanServiceTest - [ACT] Mengajukan loan
+2026-04-28 00:58:52 [DEBUG] com.p2p.LoanServiceTest - [ACT] Loan diproses, status: APPROVED
+2026-04-28 00:58:52 [INFO ] com.p2p.LoanServiceTest - [RESULT] TC-03 Edge Case PASSED - Sistem berhasil menyetujui loan dengan credit score tepat pada nilai threshold 600
+2026-04-28 00:58:52 [INFO ] com.p2p.LoanServiceTest - ====== TC-04 Edge Case: credit score tepat 1 di bawah threshold (599) ======
+2026-04-28 00:58:52 [DEBUG] com.p2p.LoanServiceTest - [ARRANGE] Borrower dengan credit score: 599
+2026-04-28 00:58:52 [DEBUG] com.p2p.LoanServiceTest - [ARRANGE] Amount pinjaman: 3000
+2026-04-28 00:58:52 [DEBUG] com.p2p.LoanServiceTest - [ACT] Mengajukan loan
+2026-04-28 00:58:52 [DEBUG] com.p2p.LoanServiceTest - [ACT] Loan diproses, status: REJECTED
+2026-04-28 00:58:52 [INFO ] com.p2p.LoanServiceTest - [RESULT] TC-04 Edge Case PASSED - Sistem berhasil menolak loan karena credit score 599 berada tepat di bawah nilai threshold
+2026-04-28 00:58:52 [INFO ] com.p2p.LoanServiceTest - ====== TC-01: shouldRejectLoanWhenBorrowerNotVerified ======
+2026-04-28 00:58:52 [DEBUG] com.p2p.LoanServiceTest - [ARRANGE] Membuat borrower belum KYC (verified=false, creditScore=700)
+2026-04-28 00:58:52 [DEBUG] com.p2p.LoanServiceTest - [ARRANGE] Amount pinjaman: 1000
+2026-04-28 00:58:52 [DEBUG] com.p2p.LoanServiceTest - [ACT] Borrower mencoba mengajukan loan
+2026-04-28 00:58:52 [WARN ] com.p2p.LoanServiceTest - [ASSERT] Exception ditangkap: Borrower not verified
+2026-04-28 00:58:52 [INFO ] com.p2p.LoanServiceTest - [RESULT] TC-01 PASSED - Sistem berhasil menolak loan dari borrower yang belum terverifikasi KYC
